@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:8.0  
+    container_name: bettertire
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Password'  
+      MYSQL_DATABASE: bettertire        
+      MYSQL_USER: dbuser               # non-root user
+      MYSQL_PASSWORD: dbpassword       # Password for non-root user
+    volumes:
+      - ../mysql_data:/var/lib/mysql   # Persist data outside container
+      - ./db:/docker-entrypoint-initdb.d # Optional: init SQL scripts
+    ports:
+      - "3306:3306"
+    restart: always
