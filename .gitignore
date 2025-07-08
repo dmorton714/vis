@@ -1,3 +1,6 @@
 .venv
 .vscode
 mysql_data
+
+vis_web
+.DS_Store
